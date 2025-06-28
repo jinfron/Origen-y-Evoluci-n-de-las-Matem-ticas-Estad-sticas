@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: De la Estadística al Machine Learning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .kdd-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4A5568;
+            font-size: 2.5rem;
+            flex-shrink: 0;
+            margin: 0 1rem;
+        }
+        .kdd-step {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .kdd-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .stat-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #007BFF, #00BFFF);
+        }
+        .section-title {
+            font-weight: 900;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            color: #1A202C;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #4A5568;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="hero-gradient text-white p-8 md:p-12 text-center">
+        <h1 class="text-4xl md:text-6xl font-black mb-4 tracking-tight">La Evolución de la Estadística al Machine Learning</h1>
+        <p class="text-lg md:text-xl max-w-3xl mx-auto">Un viaje desde los fundamentos teóricos hasta las aplicaciones que definen nuestra era digital.</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <section id="parametricos" class="my-16">
+            <h2 class="section-title">El Amanecer del Orden: Estadística Paramétrica</h2>
+            <p class="section-subtitle">
+                Los cimientos de la inferencia moderna se construyeron sobre la idea de que los datos siguen distribuciones predecibles. Figuras clave formalizaron métodos para estimar, predecir y cuantificar la incertidumbre, asumiendo un orden subyacente en el caos.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="stat-card text-center">
+                    <p class="text-5xl font-extrabold text-[#007BFF]">1809</p>
+                    <h3 class="text-xl font-bold mt-2">Gauss y la Curva Normal</h3>
+                    <p class="mt-2 text-gray-600">Carl Friedrich Gauss popularizó la distribución normal, la piedra angular de la estadística paramétrica, y el método de mínimos cuadrados.</p>
+                </div>
+                <div class="stat-card text-center">
+                     <p class="text-5xl font-extrabold text-[#007BFF]">1889</p>
+                    <h3 class="text-xl font-bold mt-2">Galton y la Correlación</h3>
+                    <p class="mt-2 text-gray-600">Francis Galton introdujo los conceptos de correlación y regresión, permitiendo medir la relación entre variables.</p>
+                </div>
+                <div class="stat-card text-center">
+                     <p class="text-5xl font-extrabold text-[#007BFF]">1925</p>
+                    <h3 class="text-xl font-bold mt-2">Fisher y el ANOVA</h3>
+                    <p class="mt-2 text-gray-600">Ronald A. Fisher revolucionó el diseño experimental con el Análisis de Varianza (ANOVA), consolidando la inferencia moderna.</p>
+                </div>
+                <div class="stat-card text-center">
+                     <p class="text-5xl font-extrabold text-[#007BFF]">1933</p>
+                    <h3 class="text-xl font-bold mt-2">Neyman-Pearson</h3>
+                    <p class="mt-2 text-gray-600">Establecieron el marco riguroso para las pruebas de hipótesis, definiendo errores Tipo I y II, y la potencia estadística.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparacion" class="my-24">
+            <h2 class="section-title">Dos Caras de la Inferencia</h2>
+            <p class="section-subtitle">A medida que los datos del mundo real demostraron ser más complejos, surgió la necesidad de métodos que no dependieran de supuestos estrictos, dando lugar a un poderoso contrapunto a los enfoques paramétricos.</p>
+            <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Paramétrica vs. No Paramétrica</h3>
+                        <p class="mb-6">La estadística paramétrica ofrece poder y precisión cuando se cumplen sus supuestos (como la normalidad de los datos). En contraste, la estadística no paramétrica brinda flexibilidad y robustez, especialmente con datos atípicos o distribuciones desconocidas, sacrificando algo de poder estadístico a cambio.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="text-green-500 font-bold text-xl mr-3">✔</div>
+                                <div><span class="font-bold">Poder Estadístico:</span> Los métodos paramétricos son generalmente más potentes, lo que significa que pueden detectar efectos más sutiles si los datos se ajustan a sus modelos.</div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-green-500 font-bold text-xl mr-3">✔</div>
+                                <div><span class="font-bold">Robustez:</span> Los métodos no paramétricos son más resistentes a los valores atípicos y no requieren que los datos sigan una distribución normal.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="comparisonChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kdd" class="my-24">
+            <h2 class="section-title">De los Datos al Conocimiento: El Proceso KDD</h2>
+            <p class="section-subtitle">El Descubrimiento de Conocimiento en Bases de Datos (KDD) formalizó el viaje desde los datos crudos hasta la información accionable. Este proceso estructurado, donde la estadística es fundamental en cada paso, sentó las bases para la ciencia de datos moderna.</p>
+            <div class="flex flex-col md:flex-row justify-center items-center flex-wrap gap-4">
+                <div class="kdd-step text-center bg-white rounded-lg p-6 w-full md:w-1/6">
+                    <div class="text-4xl mb-2">📊</div>
+                    <h3 class="font-bold text-lg">1. Selección</h3>
+                    <p class="text-sm text-gray-600">Identificar y obtener los datos relevantes.</p>
+                </div>
+                <div class="kdd-arrow hidden md:flex">→</div>
+                <div class="kdd-step text-center bg-white rounded-lg p-6 w-full md:w-1/6">
+                    <div class="text-4xl mb-2">🧹</div>
+                    <h3 class="font-bold text-lg">2. Limpieza</h3>
+                    <p class="text-sm text-gray-600">Preprocesar y manejar datos faltantes o atípicos.</p>
+                </div>
+                 <div class="kdd-arrow hidden md:flex">→</div>
+                <div class="kdd-step text-center bg-white rounded-lg p-6 w-full md:w-1/6">
+                    <div class="text-4xl mb-2">🔄</div>
+                    <h3 class="font-bold text-lg">3. Transformación</h3>
+                    <p class="text-sm text-gray-600">Reducir dimensiones y crear nuevas características.</p>
+                </div>
+                <div class="kdd-arrow hidden md:flex">→</div>
+                <div class="kdd-step text-center bg-[#007BFF] text-white rounded-lg p-6 w-full md:w-1/6">
+                    <div class="text-4xl mb-2">⛏️</div>
+                    <h3 class="font-bold text-lg">4. Data Mining</h3>
+                    <p class="text-sm">Aplicar algoritmos para encontrar patrones.</p>
+                </div>
+                <div class="kdd-arrow hidden md:flex">→</div>
+                <div class="kdd-step text-center bg-white rounded-lg p-6 w-full md:w-1/6">
+                    <div class="text-4xl mb-2">💡</div>
+                    <h3 class="font-bold text-lg">5. Evaluación</h3>
+                    <p class="text-sm text-gray-600">Interpretar y validar el conocimiento descubierto.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ml" class="my-24">
+            <h2 class="section-title">La Era del Aprendizaje Automático</h2>
+            <p class="section-subtitle">El Machine Learning (ML) es la culminación de esta evolución, donde los algoritmos aprenden directamente de los datos. Cada algoritmo de ML, desde el más simple hasta el más complejo, se basa en fundamentos estadísticos, ya sea de naturaleza paramétrica o no paramétrica.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="stat-card">
+                    <h3 class="text-2xl font-bold mb-4 text-[#007BFF]">Algoritmos con Base Paramétrica</h3>
+                    <p class="mb-4">Estos modelos hacen suposiciones sobre la distribución de los datos, lo que los hace rápidos e interpretables, pero menos flexibles.</p>
+                    <div class="chart-container h-64 md:h-80">
+                        <canvas id="parametricMlChart"></canvas>
+                    </div>
+                     <p class="mt-4 text-sm text-gray-600">Ideales para problemas donde la relación entre variables es conocida o se puede suponer lineal.</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="text-2xl font-bold mb-4 text-[#00BFFF]">Algoritmos con Base No Paramétrica</h3>
+                    <p class="mb-4">Flexibles y potentes, no asumen distribuciones específicas, lo que les permite modelar relaciones muy complejas.</p>
+                    <div class="chart-container h-64 md:h-80">
+                        <canvas id="nonParametricMlChart"></canvas>
+                    </div>
+                    <p class="mt-4 text-sm text-gray-600">Perfectos para grandes volúmenes de datos heterogéneos y para descubrir patrones no lineales.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="bg-gray-800 text-white text-center p-6 mt-16">
+        <p>Infografía creada por Rafael Moronta.</p>
+        <p class="text-sm text-gray-400 mt-2">Basado en el ensayo.</p>
+    </footer>
+
+    <script>
+        const wrapLabel = (label, maxWidth) => {
+            if (label.length <= maxWidth) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + ' ' + word).trim().length > maxWidth) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            }
+            if (currentLine) {
+                lines.push(currentLine.trim());
+            }
+            return lines;
+        };
+        
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+
+        const sharedOptions = {
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: '#4A5568',
+                        font: {
+                            size: 14
+                        }
+                    }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                    titleFont: { size: 16 },
+                    bodyFont: { size: 14 },
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            }
+        };
+
+        const colors = {
+            primary: '#007BFF',
+            secondary: '#00BFFF',
+            accent: '#87CEEB',
+            gray: '#E2E8F0',
+            darkGray: '#4A5568'
+        };
+
+        new Chart(document.getElementById('comparisonChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Poder Estadístico', 'Robustez a Outliers', 'Flexibilidad', 'Interpretabilidad'],
+                datasets: [{
+                    label: 'Paramétrica',
+                    data: [9, 4, 3, 8],
+                    backgroundColor: colors.primary,
+                    borderColor: colors.primary,
+                    borderWidth: 1,
+                    borderRadius: 5
+                }, {
+                    label: 'No Paramétrica',
+                    data: [6, 9, 9, 5],
+                    backgroundColor: colors.secondary,
+                    borderColor: colors.secondary,
+                    borderWidth: 1,
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                ...sharedOptions,
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 10,
+                        title: { display: true, text: 'Calificación Relativa (1-10)', color: colors.darkGray },
+                        ticks: { color: colors.darkGray },
+                        grid: { color: colors.gray }
+                    },
+                    x: {
+                        ticks: { color: colors.darkGray },
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        new Chart(document.getElementById('parametricMlChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Regresión Lineal', 'Regresión Logística', 'Naive Bayes'],
+                datasets: [{
+                    label: 'Algoritmos Paramétricos',
+                    data: [40, 35, 25],
+                    backgroundColor: [colors.primary, colors.accent, 'rgba(0, 123, 255, 0.5)'],
+                    borderColor: '#fff',
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                 ...sharedOptions,
+                 cutout: '60%'
+            }
+        });
+        
+        const nonParametricLabels = ['Árboles de Decisión', 'K-Nearest Neighbors (kNN)', 'Métodos de Ensamblaje (Random Forest)', 'Redes Neuronales (Deep Learning)'];
+        new Chart(document.getElementById('nonParametricMlChart'), {
+            type: 'doughnut',
+            data: {
+                labels: nonParametricLabels.map(l => wrapLabel(l, 16)),
+                datasets: [{
+                    label: 'Algoritmos No Paramétricos',
+                    data: [25, 20, 30, 25],
+                    backgroundColor: [colors.secondary, 'rgba(0, 191, 255, 0.7)', 'rgba(0, 191, 255, 0.5)', 'rgba(0, 191, 255, 0.3)'],
+                    borderColor: '#fff',
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                 ...sharedOptions,
+                 cutout: '60%'
+            }
+        });
+
+    </script>
+</body>
+</html>
